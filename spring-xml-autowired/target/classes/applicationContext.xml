@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean name="studentRepository" class="com.theschool.repository.StudentRepositoryImpl"/>
+    <bean name="teacherRepository" class="com.theschool.repository.TeacherRepositoryImpl"/>
+    <bean name="subjectRepository" class="com.theschool.repository.SubjectRepositoryImpl"/>
+
+    <!-- autowired by name -->
+    <bean name="studentService" class="com.theschool.service.StudentServiceImpl" autowire="byName" />
+    <!-- autowired by type -->
+    <!-- not a good option, spring can confuse if you set 2 objects of the same type -->
+    <bean name="teacherService" class="com.theschool.service.TeacherServiceImpl" autowire="byType" />
+    <!-- Autowired by constructor -->
+    <bean name="subjectService" class="com.theschool.service.SubjectServiceImpl" autowire="constructor" />
+
+</beans>
